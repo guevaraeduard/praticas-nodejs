@@ -54,13 +54,14 @@ const usuarioPut = async(req = request, res = response) => {
 
 const usuarioDelete = async(req = request, res = response) => {
     const { id } = req.params
-
-    //Fisicamente
-    // const usuario = await Usuario.findByIdAndDelete(id)
-    //Cambiando el estado
+        //Fisicamente
+        // const usuario = await Usuario.findByIdAndDelete(id)
+        //Cambiando el estado
     const usuario = await Usuario.findByIdAndUpdate(id, { estado: false })
+        //const usuarioAutendticado = req.usuario
     res.json({
-        usuario
+        usuario,
+
     })
 }
 
