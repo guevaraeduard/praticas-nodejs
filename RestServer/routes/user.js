@@ -4,7 +4,9 @@ const { check } = require('express-validator')
 const router = Router()
 const { esRolValido, emailExiste, ExisteusuarioID } = require('../helpers/db-validators')
 const { validarCampos, validarJWT, esAdmin, tieneRole } = require('../middlewares')
+
 router.get('/', usuariosGet)
+
 router.post('/', [
     check('correo', 'El correo no es valido').isEmail(),
     check('correo').custom(emailExiste),
